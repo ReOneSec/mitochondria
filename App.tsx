@@ -14,18 +14,9 @@ import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { Auth } from './components/Auth';
 import { ScrollToTop } from './components/ScrollToTop';
-import { LoadingScreen } from './components/LoadingScreen';
-import { ScrollProgress } from './components/ScrollProgress';
-
-import { LiveAvailability } from './components/LiveAvailability';
-import { ImageGallery } from './components/ImageGallery';
-
-import { SuccessStories } from './components/SuccessStories';
-import { FloatingActions } from './components/FloatingActions';
 
 function App() {
   const [view, setView] = useState<'home' | 'auth'>('home');
-  const [isLoading, setIsLoading] = useState(true);
 
   // Smooth scroll behavior for anchor links
   useEffect(() => {
@@ -45,47 +36,29 @@ function App() {
     window.scrollTo(0, 0);
   };
 
-  const handleLoadComplete = () => {
-    setIsLoading(false);
-  };
-
   if (view === 'auth') {
     return <Auth onBack={handleBackToHome} />;
   }
 
   return (
-    <>
-      {/* Loading Screen */}
-      <LoadingScreen onLoadComplete={handleLoadComplete} />
-
-      {/* Scroll Progress Indicator */}
-      <ScrollProgress />
-
-      <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col">
-        <Navbar onNavigate={handleNavigateToAuth} />
-        <main className="flex-grow">
-          <Hero onNavigate={handleNavigateToAuth} />
-
-          <Philosophy />
-
-          <Routine />
-          <Nutrition />
-          <Facilities />
-          <ImageGallery />
-          <LiveAvailability />
-          <AdmissionProcess />
-          <Manifesto />
-          <Pricing />
-          <SuccessStories />
-          <Testimonials />
-          <FAQ />
-          <CTA onNavigate={handleNavigateToAuth} />
-        </main>
-        <Footer />
-        <ScrollToTop />
-        <FloatingActions />
-      </div>
-    </>
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col">
+      <Navbar onNavigate={handleNavigateToAuth} />
+      <main className="flex-grow">
+        <Hero onNavigate={handleNavigateToAuth} />
+        <Philosophy />
+        <Routine />
+        <Nutrition />
+        <Facilities />
+        <AdmissionProcess />
+        <Manifesto />
+        <Pricing />
+        <Testimonials />
+        <FAQ />
+        <CTA onNavigate={handleNavigateToAuth} />
+      </main>
+      <Footer />
+      <ScrollToTop />
+    </div>
   );
 }
 
