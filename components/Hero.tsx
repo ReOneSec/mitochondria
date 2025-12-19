@@ -13,6 +13,31 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="absolute top-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-cyan-100/50 rounded-full blur-[120px] pointer-events-none animate-drift"></div>
       <div className="absolute bottom-[0%] left-[-10%] w-[40vw] h-[40vw] bg-emerald-100/40 rounded-full blur-[100px] pointer-events-none animate-drift-slow"></div>
 
+      {/* Abstract Cellular "Organelles" - Slow floating membranes */}
+      <div className="absolute top-[15%] right-[20%] pointer-events-none animate-float opacity-30">
+        <div className="w-32 h-32 rounded-full border border-emerald-200/50 flex items-center justify-center backdrop-blur-sm">
+           <div className="w-20 h-20 rounded-full bg-emerald-100/30"></div>
+        </div>
+      </div>
+      
+      <div className="absolute top-[40%] left-[5%] pointer-events-none animate-float-delayed opacity-20">
+         <div className="w-48 h-48 rounded-[40%] border border-cyan-200/50 rotate-12 flex items-center justify-center">
+            <div className="w-32 h-32 rounded-[45%] bg-cyan-100/20"></div>
+         </div>
+      </div>
+
+      {/* NEW: Stylized Mitochondria SVG */}
+      <div className="absolute bottom-[25%] right-[5%] w-[300px] h-[150px] opacity-[0.05] pointer-events-none animate-drift-slow hidden lg:block">
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-emerald-900 fill-none" strokeWidth="0.5">
+           <path d="M10,50 Q10,10 50,10 H150 Q190,10 190,50 Q190,90 150,90 H50 Q10,90 10,50 Z" />
+           <path d="M30,50 C40,20 50,80 60,50 C70,20 80,80 90,50 C100,20 110,80 120,50 C130,20 140,80 150,50 C160,20 170,80 170,50" strokeDasharray="4 4" />
+        </svg>
+      </div>
+      
+       <div className="absolute bottom-[20%] right-[10%] pointer-events-none animate-drift opacity-20">
+         <div className="w-64 h-64 rounded-full border-[0.5px] border-slate-300/50 blur-[1px]"></div>
+      </div>
+
       {/* Floating ATP Particles (Energy Metaphor) */}
       <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-emerald-400/30 rounded-full blur-[2px] animate-float pointer-events-none"></div>
       <div className="absolute top-1/3 right-1/4 w-2 h-2 bg-cyan-300/40 rounded-full blur-[1px] animate-float-delayed pointer-events-none"></div>

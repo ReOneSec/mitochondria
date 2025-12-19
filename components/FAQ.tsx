@@ -42,7 +42,9 @@ export const FAQ: React.FC = () => {
               >
                 <button 
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full p-6 text-left flex justify-between items-center"
+                  className="w-full p-6 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-emerald-500/50 rounded-t-2xl"
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
                 >
                   <span className={`text-sm font-bold uppercase tracking-wide transition-colors ${openIndex === index ? 'text-emerald-700' : 'text-slate-700'}`}>
                     {faq.question}
@@ -53,6 +55,8 @@ export const FAQ: React.FC = () => {
                 </button>
                 
                 <div 
+                  id={`faq-answer-${index}`}
+                  role="region"
                   className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
                   <div className="p-6 pt-0 text-slate-500 text-sm leading-relaxed font-light">

@@ -9,9 +9,51 @@ export const Manifesto: React.FC = () => {
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none translate-x-1/2 -translate-y-1/2 mix-blend-screen"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3 mix-blend-screen"></div>
 
+      {/* Abstract Energy Strands Animation */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
+        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="strandGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#064E3B" stopOpacity="0" />
+              <stop offset="50%" stopColor="#10B981" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#064E3B" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          
+          {/* Energy Path 1 */}
+          <path id="path1" d="M-10 50 Q 25 45 50 50 T 110 50" fill="none" stroke="url(#strandGradient)" strokeWidth="0.2" className="animate-pulse-slow">
+            <animate attributeName="d" values="M-10 50 Q 25 45 50 50 T 110 50; M-10 50 Q 25 55 50 50 T 110 50; M-10 50 Q 25 45 50 50 T 110 50" dur="15s" repeatCount="indefinite" />
+          </path>
+           {/* Particle on Path 1 */}
+           <circle r="0.5" fill="#34d399">
+             <animateMotion dur="8s" repeatCount="indefinite">
+               <mpath href="#path1"/>
+             </animateMotion>
+             <animate attributeName="opacity" values="0;1;0" dur="8s" repeatCount="indefinite" />
+           </circle>
+
+          {/* Energy Path 2 */}
+          <path id="path2" d="M-10 30 Q 30 20 60 30 T 110 30" fill="none" stroke="url(#strandGradient)" strokeWidth="0.1" className="animate-pulse" style={{ animationDuration: '8s' }}>
+             <animate attributeName="d" values="M-10 30 Q 30 20 60 30 T 110 30; M-10 30 Q 30 40 60 30 T 110 30; M-10 30 Q 30 20 60 30 T 110 30" dur="20s" repeatCount="indefinite" />
+          </path>
+          {/* Particle on Path 2 */}
+           <circle r="0.4" fill="#67e8f9">
+             <animateMotion dur="12s" repeatCount="indefinite" begin="2s">
+               <mpath href="#path2"/>
+             </animateMotion>
+             <animate attributeName="opacity" values="0;1;0" dur="12s" repeatCount="indefinite" />
+           </circle>
+
+           {/* Energy Path 3 */}
+           <path d="M-10 70 Q 40 80 70 70 T 110 70" fill="none" stroke="url(#strandGradient)" strokeWidth="0.15" className="animate-pulse-slow">
+             <animate attributeName="d" values="M-10 70 Q 40 80 70 70 T 110 70; M-10 70 Q 40 60 70 70 T 110 70; M-10 70 Q 40 80 70 70 T 110 70" dur="18s" repeatCount="indefinite" />
+          </path>
+        </svg>
+      </div>
+
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <Reveal>
-            <h2 className="text-[15vw] leading-[0.8] font-bold text-transparent bg-clip-text bg-gradient-to-b from-emerald-900 to-brand-dark select-none pointer-events-none mb-12 stroke-text opacity-50">
+            <h2 className="text-[15vw] leading-[0.8] font-bold text-transparent bg-clip-text bg-gradient-to-b from-emerald-700 to-emerald-950 select-none pointer-events-none mb-12 stroke-text opacity-80 mix-blend-overlay">
                 MITOCHONDRIA
             </h2>
         </Reveal>

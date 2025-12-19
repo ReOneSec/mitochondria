@@ -27,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-12">
-          {['Philosophy', 'Facilities', 'Manifesto'].map((item) => (
+          {['Philosophy', 'Facilities', 'Process', 'Manifesto'].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase()}`}

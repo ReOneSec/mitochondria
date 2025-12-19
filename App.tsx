@@ -4,6 +4,8 @@ import { Hero } from './components/Hero';
 import { Philosophy } from './components/Philosophy';
 import { Facilities } from './components/Facilities';
 import { Routine } from './components/Routine';
+import { Nutrition } from './components/Nutrition';
+import { AdmissionProcess } from './components/AdmissionProcess';
 import { Manifesto } from './components/Manifesto';
 import { Pricing } from './components/Pricing';
 import { Testimonials } from './components/Testimonials';
@@ -39,13 +41,15 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans flex flex-col">
       <Navbar onNavigate={handleNavigateToAuth} />
-      <main>
+      <main className="flex-grow">
         <Hero onNavigate={handleNavigateToAuth} />
         <Philosophy />
         <Routine />
+        <Nutrition />
         <Facilities />
+        <AdmissionProcess />
         <Manifesto />
         <Pricing />
         <Testimonials />
