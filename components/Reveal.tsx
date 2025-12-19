@@ -5,13 +5,15 @@ interface RevealProps {
   width?: 'fit-content' | '100%';
   delay?: number;
   className?: string;
+  allowOverflow?: boolean;
 }
 
-export const Reveal: React.FC<RevealProps> = ({ 
-  children, 
-  width = '100%', 
+export const Reveal: React.FC<RevealProps> = ({
+  children,
+  width = '100%',
   delay = 0,
-  className = "" 
+  className = "",
+  allowOverflow = false
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -51,12 +53,11 @@ export const Reveal: React.FC<RevealProps> = ({
   };
 
   return (
-    <div ref={ref} style={{ width }} className={`relative overflow-hidden ${className}`}>
+    <div ref={ref} style={{ width }} className={`relative ${allowOverflow ? 'overflow-visible' : 'overflow-hidden'} ${className}`}>
       <div
         style={transitionStyle}
-        className={`transform transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
+        className={`transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
       >
         {children}
       </div>
