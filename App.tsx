@@ -3,9 +3,11 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Philosophy } from './components/Philosophy';
 import { Facilities } from './components/Facilities';
+import { Routine } from './components/Routine';
 import { Manifesto } from './components/Manifesto';
 import { Pricing } from './components/Pricing';
 import { Testimonials } from './components/Testimonials';
+import { FAQ } from './components/FAQ';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
 import { Auth } from './components/Auth';
@@ -42,10 +44,12 @@ function App() {
       <main>
         <Hero onNavigate={handleNavigateToAuth} />
         <Philosophy />
+        <Routine />
         <Facilities />
         <Manifesto />
         <Pricing />
         <Testimonials />
+        <FAQ />
         <CTA onNavigate={handleNavigateToAuth} />
       </main>
       <Footer />
